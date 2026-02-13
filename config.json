@@ -1,0 +1,31 @@
+{
+  "files": {
+    "input_filename": "data3.mat",
+    "data_folder": "Data/"
+  },
+  "physics": {
+    "nvars": 3,
+    "theta_angles": [15, 30, 45],
+    "wavelet_freq": 45,
+    "wavelet_ntw": 64,
+    "prior_filter_order": 3,
+    "prior_cutoff_freq": 0.04,
+    "correlation_length_factor": 5
+  },
+  "cmaes": {
+    "sigma_initial": 8,
+    "stop_generations": 6000,
+    "stop_tol_diversity": 0.1
+  },
+  "uh": {
+    "noise_level": 0.05,
+    "r_lambda": 0.3,
+    "theta_uh": 0.2,
+    "cs_uh": 0.3,
+    "alpha_t": 1.5,
+    "alpha_sigma": 1.2,
+    "t_eval_initial": 25,
+    "t_min": 1,
+    "t_max": 50
+  }
+}

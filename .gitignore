@@ -1,0 +1,12 @@
+# Arquivos temporários do MATLAB
+*.asv
+*.autosave
+*.m~
+
+# Pasta de resultados gerada pelo código
+Results/
+Data/
+# *.mat
+
+# Configurações locais de IDE (se usar VSCode, etc)
+.vscode/

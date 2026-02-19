@@ -18,24 +18,52 @@ A estrutura de pastas deve ficar semelhante a esta:
 
 ```text
 SeReM/
-├── config.json            # Arquivo de configuração dos parâmetros
-├── UHCMAESV3.m            # Script principal de otimização
+├── config.json            # Arquivo de configuração dos parâmetros base
+├── UHCMAES.m              # Script principal de otimização
+├── BatchRun_UHCMAES.m     # Script para automação de múltiplos cenários
 └── PlotResults.m          # Script para gerar gráficos pós-execução
 
 ```
 
-## 🚀 Como Usar
+## 🚀 Como Usar (Execução Única)
 
 1. Abra o MATLAB ou Octave.
 2. Configure os parâmetros da simulação no arquivo `config.json` (se necessário).
 3. Execute o script principal:
 ```matlab
-UHCMAESV3
+UHCMAES
 
 ```
 
 
 4. Os resultados serão salvos automaticamente na pasta `Results/`, organizados por data e hora.
+
+## 🔄 Execução em Lote (Batch Run)
+
+Se você deseja rodar o algoritmo diversas vezes consecutivas testando diferentes configurações de parâmetros (ex: variando o Sigma ou o nível de ruído), utilize o script **`BatchRun_UHCMAES.m`**.
+
+**⚠️ ATENÇÃO ESTRUTURAL:** Antes de utilizar o script de Batch, você **DEVE** abrir o arquivo `UHCMAES.m` e comentar a linha que contém `clear all;` no início do código, caso contrário o loop do Batch será apagado da memória.
+
+```matlab
+% clear all; close all; clc; % <-- Deixe assim no UHCMAES.m
+
+```
+
+**Como configurar os testes:**
+
+1. Abra o arquivo `BatchRun_UHCMAES.m`.
+2. Vá até a seção **`2. DEFINIÇÃO DOS CENÁRIOS`**.
+3. Adicione ou modifique os blocos de experimentos definindo os parâmetros que deseja alterar em relação ao `config.json` base. Exemplo:
+```matlab
+exp_count = exp_count + 1;
+experiments(exp_count).name = 'Meu_Novo_Teste';
+experiments(exp_count).params.cmaes.sigma_initial = 2.5;
+
+```
+
+
+4. Execute o script `BatchRun_UHCMAES`.
+5. O script fará um backup da sua configuração original, rodará todos os cenários gerando pastas de resultados independentes e, ao final, restaurará seu `config.json` original.
 
 ## 📊 Visualização
 

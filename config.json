@@ -5,7 +5,11 @@
   },
   "physics": {
     "nvars": 3,
-    "theta_angles": [15, 30, 45],
+    "theta_angles": [
+      15,
+      30,
+      45
+    ],
     "wavelet_freq": 45,
     "wavelet_ntw": 64,
     "prior_filter_order": 3,
@@ -13,8 +17,8 @@
     "correlation_length_factor": 5
   },
   "cmaes": {
-    "sigma_initial": 8,
-    "stop_generations": 6000,
+    "sigma_initial": 0.5,
+    "stop_generations": 5000,
     "stop_tol_diversity": 0.1
   },
   "uh": {

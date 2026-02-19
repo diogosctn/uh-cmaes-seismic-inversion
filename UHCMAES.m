@@ -3,7 +3,9 @@
 % Combinação: Lógica UH (Hansen et al.) + Física de Ondas (SeReM)
 % =========================================================================
 
-clear all; close all; clc;
+% Comentado para execução em Batch
+% clear all; close all; clc;
+
 pkg load communications
 addpath(genpath('../SeReM/'));
 
@@ -197,7 +199,18 @@ while generation < stop_generations
     n_samples = round(t_eval);
 
     % Termo de Regularização
-    reg_weight = 5;
+    reg_type = 'sigma_exp0001';
+
+    switch reg_type
+        case '5_exp001'
+            reg_weight = 5 * exp(-0.001 * generation);
+
+        case 'sigma_exp0001'
+            reg_weight = sigma * exp(-0.0001 * generation);
+
+        otherwise
+            reg_weight = 5;
+    end
 
     for k = 1:lambda
         % Gera indivíduo (Modelo de Velocidade/Densidade)

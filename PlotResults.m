@@ -3,7 +3,7 @@
 % Objetivo: Carregar binário (.mat) de uma execução e gerar diagnósticos
 % =========================================================================
 
-clear all; close all; clc;
+clear; clc;
 
 % 1. SELEÇÃO DO ARQUIVO DE RESULTADOS
 fprintf('Selecione o arquivo .mat da execução desejada...\n');
@@ -164,3 +164,6 @@ try
 catch
 end
 caxis([0 stop_generations]);
+
+% Força a renderização imediata e libera a janela de comando
+drawnow;

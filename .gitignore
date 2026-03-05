@@ -3,10 +3,12 @@
 *.autosave
 *.m~
 
-# Pasta de resultados gerada pelo código
-Results/
+# Resultados gerados pelo código
+Results*
+Relatorio_*
+
+# Dados de entrada
 Data/
-# *.mat
 
 # Configurações locais de IDE (se usar VSCode, etc)
 .vscode/

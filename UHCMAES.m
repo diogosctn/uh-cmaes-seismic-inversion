@@ -7,6 +7,8 @@
 % clear all; close all; clc;
 
 pkg load communications
+pkg load statistics
+
 addpath(genpath('../SeReM/'));
 
 % =========================================================================
@@ -85,6 +87,9 @@ sigma = cfg.cmaes.sigma_initial;
 stop_generations = cfg.cmaes.stop_generations;
 stop_tol_diversity = cfg.cmaes.stop_tol_diversity;
 
+reg_type = cfg.cmaes.reg_type;
+gen_method = cfg.cmaes.gen_method;
+
 eigeneval = 0;
 pc = zeros(N, 1);
 ps = zeros(N, 1);
@@ -122,6 +127,7 @@ sigma_err_matrix = noise_level * eye(Nd);
 % Históricos
 history.fitness = []; history.solutions = []; history.t_eval = [];
 history.sigma = []; history.diversity = []; history.reg_weight = [];
+history.ensamble = [];
 
 % =========================================================================
 % CONFIGURAÇÃO DE LOGS, PASTAS E BACKUP DE PARÂMETROS
@@ -199,8 +205,6 @@ while generation < stop_generations
     n_samples = round(t_eval);
 
     % Termo de Regularização
-    reg_type = 'sigma_exp0001';
-
     switch reg_type
         case '5_exp001'
             reg_weight = 5 * exp(-0.001 * generation);
@@ -214,7 +218,13 @@ while generation < stop_generations
 
     for k = 1:lambda
         % Gera indivíduo (Modelo de Velocidade/Densidade)
-        arx(:, k) = x_new + sigma * B * (D .* randn(N, 1));
+        switch gen_method
+            case 'cmaes'
+                arx(:, k) = x_new + sigma * B * (D .* randn(N, 1));
+
+            case 'mvnrnd'
+                arx(:, k) = mvnrnd(x_new(:),sigma*C);
+        end
 
         % Decodifica propriedades físicas
         X_k = arx(:, k);
@@ -331,6 +341,7 @@ while generation < stop_generations
     end
 
     if mod(generation, 25) == 0
+        history.ensamble = arx;
         history.solutions(:, end+1) = x_new;
 
         fprintf('Gen %d: Fit=%.2e | Sigma=%.2f | Samples=%d | Div=%.2f | s_bar=%.2f | reg_weight=%.2f\n', ...

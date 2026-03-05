@@ -18,8 +18,10 @@
   },
   "cmaes": {
     "sigma_initial": 0.5,
-    "stop_generations": 5000,
-    "stop_tol_diversity": 0.1
+    "stop_generations": 1000,
+    "stop_tol_diversity": 0.1,
+    "gen_method": "cmaes",
+    "reg_type": "5_exp001"
   },
   "uh": {
     "noise_level": 0.05,

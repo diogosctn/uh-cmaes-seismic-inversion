@@ -50,33 +50,63 @@ end
 experiments = [];
 exp_count = 0;
 
-% --- Cenário 1: Sigma Baixo (Exploração Local) ---
+% --- Cenário 1: Sigma baixo com método de geração padrão (Exploração Local) ---
 exp_count = exp_count + 1;
-experiments(exp_count).name = 'Low_Sigma';
+experiments(exp_count).name = 'Low_Sigma_W_Gen_Method_CMAES';
+experiments(exp_count).params.cmaes.gen_method = 'cmaes';
 experiments(exp_count).params.cmaes.sigma_initial = 0.5;
 experiments(exp_count).params.uh.noise_level = 0.05;
 
-% --- Cenário 2: Sigma Alto (Exploração Global) ---
+% --- Cenário 2: Sigma alto com método de geração padrão (Exploração Global) ---
 exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Sigma';
+experiments(exp_count).name = 'High_Sigma_W_Gen_Method_CMAES';
+experiments(exp_count).params.cmaes.gen_method = 'cmaes';
 experiments(exp_count).params.cmaes.sigma_initial = 5.0;
 experiments(exp_count).params.uh.noise_level = 0.05;
 
-% --- Cenário 3: Ruído Alto (Teste de Robustez UH) ---
+% --- Cenário 3: Ruído alto com método de geração padrão (Teste de Robustez UH) ---
 exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Noise_UH';
+experiments(exp_count).name = 'High_Noise_UH_W_Gen_Method_CMAES';
+experiments(exp_count).params.cmaes.gen_method = 'cmaes';
 experiments(exp_count).params.cmaes.sigma_initial = 2.0;
 experiments(exp_count).params.uh.noise_level = 0.20; % 20% de ruído
 experiments(exp_count).params.uh.t_max = 100;        % Permite mais reamostragens
 
-% --- Cenário 4: População Maior (Alterando Configurações não listadas acima) ---
-% Nota: O cálculo de lambda é feito no código MATLAB, mas se você passar
-% parâmetros que afetam o lambda (como stop_generations ou outros do json),
-% defina aqui. Como exemplo, vamos mudar a tolerância.
+% --- Cenário 4: População maior  com método de geração padrão (Alterando Configurações não listadas acima) ---
 exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Precision';
+experiments(exp_count).name = 'High_Precision_W_Gen_Method_CMAES';
+experiments(exp_count).params.cmaes.gen_method = 'cmaes';
 experiments(exp_count).params.cmaes.stop_tol_diversity = 1e-4;
-experiments(exp_count).params.cmaes.stop_generations = 800;
+experiments(exp_count).params.cmaes.stop_generations = 8000;
+
+% --- Cenário 5: Sigma baixo com método de geração MVNRND (Exploração Local) ---
+exp_count = exp_count + 1;
+experiments(exp_count).name = 'Low_Sigma_W_Gen_Method_MVNRND';
+experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
+experiments(exp_count).params.cmaes.sigma_initial = 0.5;
+experiments(exp_count).params.uh.noise_level = 0.05;
+
+% --- Cenário 6: Sigma alto com método de geração MVNRND (Exploração Global) ---
+exp_count = exp_count + 1;
+experiments(exp_count).name = 'High_Sigma_W_Gen_Method_MVNRND';
+experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
+experiments(exp_count).params.cmaes.sigma_initial = 5.0;
+experiments(exp_count).params.uh.noise_level = 0.05;
+
+% --- Cenário 7: Ruído alto com método de geração MVNRND (Teste de Robustez UH) ---
+exp_count = exp_count + 1;
+experiments(exp_count).name = 'High_Noise_UH_W_Gen_Method_MVNRND';
+experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
+experiments(exp_count).params.cmaes.sigma_initial = 2.0;
+experiments(exp_count).params.uh.noise_level = 0.20; % 20% de ruído
+experiments(exp_count).params.uh.t_max = 100;        % Permite mais reamostragens
+
+% --- Cenário 8: População maior  com método de geração MVNRND (Alterando Configurações não listadas acima) ---
+exp_count = exp_count + 1;
+experiments(exp_count).name = 'High_Precision_W_Gen_Method_MVNRND';
+experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
+experiments(exp_count).params.cmaes.stop_tol_diversity = 1e-4;
+experiments(exp_count).params.cmaes.stop_generations = 8000;
 
 
 % =========================================================================

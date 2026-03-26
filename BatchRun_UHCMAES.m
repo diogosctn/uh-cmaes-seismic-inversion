@@ -6,18 +6,23 @@
 
 clear all; close all; clc;
 
+diary('BatchRun_UHCMAES.log');
+diary on;
+
 % 1. Configurações Iniciais
 script_name = 'UHCMAES'; % Nome do script principal (sem .m)
 config_file = 'config.json';
 backup_file = 'config_backup.json';
-csv_file    = 'Experiments/experiments0.csv'; % Arquivo com a matriz de experimentos
+csv_file    = 'Experiments/experiments1.csv'; % Arquivo com a matriz de experimentos
 
 % Verifica se os arquivos necessários existem
 if ~exist(config_file, 'file')
     error('Arquivo %s não encontrado.', config_file);
+    diary off
 end
 if ~exist(csv_file, 'file')
     error('Arquivo %s não encontrado. Crie o CSV com os cenários.', csv_file);
+    diary off
 end
 
 % Faz backup do config original para restaurar no final
@@ -61,6 +66,7 @@ function cfg = set_nested_field(cfg, path_str, val)
             cfg.(parts{1}).(parts{2}).(parts{3}).(parts{4}) = val;
         otherwise
             error('Profundidade de parâmetro %s excede o limite (4 níveis).', path_str);
+            diary off
     end
 end
 
@@ -142,7 +148,7 @@ for i = 1:num_exps
     json_str = jsonencode(current_cfg);
 
     fid = fopen(config_file, 'w');
-    if fid == -1, error('Não foi possível escrever no config.json'); end
+    if fid == -1, error('Não foi possível escrever no config.json');diary off; end
     fprintf(fid, '%s', json_str);
     fclose(fid);
 
@@ -170,4 +176,4 @@ delete(backup_file);
 fprintf('\n===================================================\n');
 fprintf('Bateria de testes finalizada.\n');
 fprintf('Configuração original restaurada.\n');
-
+diary off

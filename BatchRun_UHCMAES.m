@@ -1,6 +1,6 @@
 % =========================================================================
-% Script: BatchRun_UHCMAES.m
-% Objetivo: Executar o algoritmo UHCMAES multiplas vezes variando parametros
+% Script: BatchRun_UHCMAES.m (VERSÃO OCTAVE)
+% Objetivo: Executar o algoritmo UHCMAES multiplas vezes via CSV
 % Nota: REMOVA ou COMENTE o 'clear all' dentro do UHCMAES.m antes de rodar!
 % =========================================================================
 
@@ -10,168 +10,164 @@ clear all; close all; clc;
 script_name = 'UHCMAES'; % Nome do script principal (sem .m)
 config_file = 'config.json';
 backup_file = 'config_backup.json';
+csv_file    = 'Experiments/experiments0.csv'; % Arquivo com a matriz de experimentos
 
-% Verifica se o arquivo de config existe
+% Verifica se os arquivos necessários existem
 if ~exist(config_file, 'file')
-    error('Arquivo config.json não encontrado.');
+    error('Arquivo %s não encontrado.', config_file);
+end
+if ~exist(csv_file, 'file')
+    error('Arquivo %s não encontrado. Crie o CSV com os cenários.', csv_file);
 end
 
 % Faz backup do config original para restaurar no final
 copyfile(config_file, backup_file);
 fprintf('Backup da configuração original salvo em %s\n', backup_file);
 
-% Carrega a configuração base
+% Carrega a configuração base (Octave 7+ suporta nativamente)
 base_cfg = jsondecode(fileread(config_file));
 
-% -------------------------------------------------------------------------
-% Função Auxiliar Local para atualizar structs aninhadas
-% -------------------------------------------------------------------------
-function base = update_struct(base, changes)
-    fields = fieldnames(changes);
-    for k = 1:numel(fields)
-        f = fields{k};
-        if isstruct(changes.(f)) && isfield(base, f) && isstruct(base.(f))
-            % Chamada recursiva para sub-estruturas (ex: params.uh.noise)
-            base.(f) = update_struct(base.(f), changes.(f));
-        else
-            % Sobrescreve valor
-            base.(f) = changes.(f);
-            fprintf('   -> Parametro alterado: %s = %s\n', f, mat2str(changes.(f)));
+% =========================================================================
+% FUNÇÕES AUXILIARES LOCAIS (Adaptadas para Octave)
+% =========================================================================
+
+function b = ismissing_custom(val)
+    % Verifica se um valor é efetivamente vazio/nulo no Octave
+    b = false;
+    if ischar(val)
+        if isempty(strtrim(val))
+            b = true;
         end
+    elseif isnumeric(val)
+        if isnan(val)
+            b = true;
+        end
+    elseif isempty(val)
+        b = true;
+    end
+end
+
+function cfg = set_nested_field(cfg, path_str, val)
+    % Navega na struct a partir de uma string com pontos (ex: 'cmaes.sigma_initial')
+    parts = strsplit(path_str, '.');
+    switch length(parts)
+        case 1
+            cfg.(parts{1}) = val;
+        case 2
+            cfg.(parts{1}).(parts{2}) = val;
+        case 3
+            cfg.(parts{1}).(parts{2}).(parts{3}) = val;
+        case 4
+            cfg.(parts{1}).(parts{2}).(parts{3}).(parts{4}) = val;
+        otherwise
+            error('Profundidade de parâmetro %s excede o limite (4 níveis).', path_str);
     end
 end
 
 % =========================================================================
-% 2. DEFINIÇÃO DOS CENÁRIOS (EXPERIMENTOS)
+% LEITURA CUSTOMIZADA DO CSV PARA OCTAVE
 % =========================================================================
-% Aqui você define quais parâmetros quer variar.
-% Crie um array de estruturas 'experiments'.
+fid = fopen(csv_file, 'r');
+lines = {};
+while ~feof(fid)
+    line = fgetl(fid);
+    if ischar(line) && ~isempty(strtrim(line))
+        lines{end+1} = line;
+    end
+end
+fclose(fid);
 
-experiments = [];
-exp_count = 0;
+% Converte as linhas em uma matriz de células (cell array)
+num_rows = length(lines);
+num_cols = length(strsplit(lines{1}, ',', 'CollapseDelimiters', false));
+data = cell(num_rows, num_cols);
 
-% --- Cenário 1: Sigma baixo com método de geração padrão (Exploração Local) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'Low_Sigma_W_Gen_Method_CMAES';
-experiments(exp_count).params.cmaes.gen_method = 'cmaes';
-experiments(exp_count).params.cmaes.sigma_initial = 0.5;
-experiments(exp_count).params.uh.noise_level = 0.05;
+for i = 1:num_rows
+    cols = strsplit(lines{i}, ',', 'CollapseDelimiters', false);
+    for j = 1:num_cols
+        if j <= length(cols)
+            val = strtrim(cols{j});
+            num_val = str2double(val);
+            if ~isnan(num_val) && ~isempty(val) % É um número válido
+                data{i,j} = num_val;
+            else
+                data{i,j} = val; % Mantém como string ou vazio
+            end
+        else
+            data{i,j} = ''; % Preenche colunas faltantes com vazio
+        end
+    end
+end
 
-% --- Cenário 2: Sigma alto com método de geração padrão (Exploração Global) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Sigma_W_Gen_Method_CMAES';
-experiments(exp_count).params.cmaes.gen_method = 'cmaes';
-experiments(exp_count).params.cmaes.sigma_initial = 5.0;
-experiments(exp_count).params.uh.noise_level = 0.05;
+headers = data(1, :);
+num_exps = size(data, 1) - 1;
 
-% --- Cenário 3: Ruído alto com método de geração padrão (Teste de Robustez UH) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Noise_UH_W_Gen_Method_CMAES';
-experiments(exp_count).params.cmaes.gen_method = 'cmaes';
-experiments(exp_count).params.cmaes.sigma_initial = 2.0;
-experiments(exp_count).params.uh.noise_level = 0.20; % 20% de ruído
-experiments(exp_count).params.uh.t_max = 100;        % Permite mais reamostragens
-
-% --- Cenário 4: População maior  com método de geração padrão (Alterando Configurações não listadas acima) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Precision_W_Gen_Method_CMAES';
-experiments(exp_count).params.cmaes.gen_method = 'cmaes';
-experiments(exp_count).params.cmaes.stop_tol_diversity = 1e-4;
-experiments(exp_count).params.cmaes.stop_generations = 8000;
-
-% --- Cenário 5: Sigma baixo com método de geração MVNRND (Exploração Local) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'Low_Sigma_W_Gen_Method_MVNRND';
-experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
-experiments(exp_count).params.cmaes.sigma_initial = 0.5;
-experiments(exp_count).params.uh.noise_level = 0.05;
-
-% --- Cenário 6: Sigma alto com método de geração MVNRND (Exploração Global) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Sigma_W_Gen_Method_MVNRND';
-experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
-experiments(exp_count).params.cmaes.sigma_initial = 5.0;
-experiments(exp_count).params.uh.noise_level = 0.05;
-
-% --- Cenário 7: Ruído alto com método de geração MVNRND (Teste de Robustez UH) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Noise_UH_W_Gen_Method_MVNRND';
-experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
-experiments(exp_count).params.cmaes.sigma_initial = 2.0;
-experiments(exp_count).params.uh.noise_level = 0.20; % 20% de ruído
-experiments(exp_count).params.uh.t_max = 100;        % Permite mais reamostragens
-
-% --- Cenário 8: População maior  com método de geração MVNRND (Alterando Configurações não listadas acima) ---
-exp_count = exp_count + 1;
-experiments(exp_count).name = 'High_Precision_W_Gen_Method_MVNRND';
-experiments(exp_count).params.cmaes.gen_method = 'mvnrnd';
-experiments(exp_count).params.cmaes.stop_tol_diversity = 1e-4;
-experiments(exp_count).params.cmaes.stop_generations = 8000;
-
+fprintf('Iniciando bateria de %d experimentos via CSV no Octave...\n\n', num_exps);
 
 % =========================================================================
-% 3. LOOP DE EXECUÇÃO
+% 2. LOOP DE EXECUÇÃO
 % =========================================================================
 
-total_exps = length(experiments);
-fprintf('Iniciando bateria de %d experimentos...\n\n', total_exps);
+for i = 1:num_exps
+    exp_name = data{i+1, 1};
 
-for i = 1:total_exps
-    current_exp = experiments(i);
     fprintf('---------------------------------------------------\n');
-    fprintf('Rodando Experimento %d/%d: %s\n', i, total_exps, current_exp.name);
+    fprintf('Rodando Experimento %d/%d: %s\n', i, num_exps, exp_name);
     fprintf('---------------------------------------------------\n');
 
-    % 3.1. Prepara a Configuração Atual
-    % Copia a base e sobrescreve apenas os campos definidos no experimento
+    % Copia a base e sobrescreve apenas os campos definidos no CSV
     current_cfg = base_cfg;
 
-    % Função recursiva simples para atualizar campos aninhados (structs)
-    current_cfg = update_struct(current_cfg, current_exp.params);
+    % Itera sobre todas as colunas de parâmetros (a partir da coluna 2)
+    for j = 2:length(headers)
+        param_path = headers{j};
+        param_val = data{i+1, j};
 
-    % 3.2. Salva o config.json temporário
-    % Usa formatação bonita se disponível (Matlab R2016b+)
-    try
-        json_str = jsonencode(current_cfg, 'PrettyPrint', true);
-    catch
-        json_str = jsonencode(current_cfg);
+        % Ignora a célula se estiver vazia no CSV
+        if ismissing_custom(param_val)
+            continue;
+        end
+
+        % Atualiza o campo aninhado na struct
+        current_cfg = set_nested_field(current_cfg, param_path, param_val);
+
+        if isnumeric(param_val)
+            fprintf('   -> %s = %g\n', param_path, param_val);
+        else
+            fprintf('   -> %s = %s\n', param_path, param_val);
+        end
     end
+
+    % Salva o config.json temporário
+    json_str = jsonencode(current_cfg);
 
     fid = fopen(config_file, 'w');
     if fid == -1, error('Não foi possível escrever no config.json'); end
     fprintf(fid, '%s', json_str);
     fclose(fid);
 
-    % 3.3. Executa o Algoritmo
+    % Executa o Algoritmo
     try
-        % Pausa breve para garantir I/O de disco
-        pause(1);
-
-        % Executa o script
+        pause(1); % Pausa breve para garantir I/O de disco
         eval(script_name);
-
-        fprintf('\n>>> Experimento %s concluído com sucesso.\n', current_exp.name);
-
+        fprintf('\n>>> Experimento %s concluído com sucesso.\n', exp_name);
     catch ME
-        fprintf('\n!!! Erro durante o experimento %s:\n%s\n', current_exp.name, ME.message);
-        % Não para o loop, tenta o próximo
+        fprintf('\n!!! Erro durante o experimento %s:\n%s\n', exp_name, ME.message);
     end
 
-    % Limpa variáveis pesadas geradas pelo script anterior para poupar memória,
-    % MAS mantém as variáveis de controle deste loop (experiments, i, etc)
-    clearvars -except experiments i total_exps base_cfg config_file backup_file script_name update_struct
-
-    close all; % Fecha figuras geradas
+    % Limpa variáveis do script filho, mantendo as essenciais do loop
+    clearvars -except csv_file data headers num_exps i base_cfg config_file backup_file script_name
+    close all;
 end
 
 % =========================================================================
-% 4. FINALIZAÇÃO
+% 3. FINALIZAÇÃO
 % =========================================================================
 
-% Restaura o config original
 copyfile(backup_file, config_file);
 delete(backup_file);
 
 fprintf('\n===================================================\n');
 fprintf('Bateria de testes finalizada.\n');
 fprintf('Configuração original restaurada.\n');
+

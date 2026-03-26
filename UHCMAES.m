@@ -135,7 +135,7 @@ history.ensamble = [];
 timestamp = datestr(now, 'yyyy-mm-dd_HH-MM-SS');
 
 % 1. Definição da Estrutura de Pastas
-base_folder = 'Results';
+base_folder = 'Results_UHCMAES';
 run_folder = fullfile(base_folder, timestamp);
 
 % 2. Criação das Pastas (se não existirem)
@@ -196,7 +196,11 @@ end
 % 4. LOOP PRINCIPAL
 % =========================================================================
 generation = 0;
+tempo_execucao = 0; % INICIALIZA O ACUMULADOR DE TEMPO DA INVERSÃO
+
 while generation < stop_generations
+    tic_iter = tic; % INICIA O CRONÔMETRO DESTA ITERAÇÃO
+
     generation = generation + 1;
 
     % --- Passo 1: Amostragem e Avaliação ---
@@ -315,6 +319,7 @@ while generation < stop_generations
 
     if diversity_metric < stop_tol_diversity
         fprintf('>>> Convergência atingida (Diversidade < Tol)\n');
+        tempo_execucao = tempo_execucao + toc(tic_iter); % SOMA TEMPO ANTES DE INTERROMPER
         break;
     end
 
@@ -340,9 +345,13 @@ while generation < stop_generations
         inv_sqrt_C = B * diag(D.^-1) * B';
     end
 
+    % PÁRA O CRONÔMETRO AQUI, ANTES DOS PROCESSOS DE I/O (Prints e Gravação em Disco)
+    tempo_execucao = tempo_execucao + toc(tic_iter);
+
     if mod(generation, 25) == 0
         history.ensamble = arx;
         history.solutions(:, end+1) = x_new;
+        history.time_elapsed = tempo_execucao; % Salva o tempo atualizado no history
 
         fprintf('Gen %d: Fit=%.2e | Sigma=%.2f | Samples=%d | Div=%.2f | s_bar=%.2f | reg_weight=%.2f\n', ...
             generation, arfitness_sorted(1), sigma, round(t_eval), diversity_metric, s_bar, reg_weight);
@@ -358,3 +367,11 @@ while generation < stop_generations
         save(mat_filename, 'history', 'x_new', 'cfg');
     end
 end
+
+% =========================================================================
+% 5. SALVAMENTO DEFINITIVO APÓS O FIM DO LOOP
+% =========================================================================
+history.time_elapsed = tempo_execucao; % Garante que o tempo final absoluto esteja gravado
+save(mat_filename, 'history', 'x_new', 'cfg');
+fprintf('Execução estrita do algoritmo UHCMAES concluída em %.2f segundos.\n', tempo_execucao);
+fprintf('Processo finalizado com sucesso!\n');

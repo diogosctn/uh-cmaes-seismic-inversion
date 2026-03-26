@@ -1,0 +1,2 @@
+Experiment_Name,cmaes.gen_method,cmaes.sigma_initial,uh.noise_level,uh.t_max,cmaes.stop_tol_diversity,cmaes.stop_generations,cmaes.reg_type
+Sigma1_W_Gen_Method_CMAES,cmaes,0.5,0.1,,,500,const

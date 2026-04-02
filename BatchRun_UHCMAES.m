@@ -13,7 +13,7 @@ diary on;
 script_name = 'UHCMAES'; % Nome do script principal (sem .m)
 config_file = 'config.json';
 backup_file = 'config_backup.json';
-csv_file    = 'Experiments/experiments1.csv'; % Arquivo com a matriz de experimentos
+csv_file    = 'Experiments/experiments3.csv'; % Arquivo com a matriz de experimentos
 
 % Verifica se os arquivos necessários existem
 if ~exist(config_file, 'file')

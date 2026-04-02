@@ -1,0 +1,767 @@
+Backup da configuração original salvo em config_backup.json
+Iniciando bateria de 40 experimentos via CSV no Octave...
+
+---------------------------------------------------
+Rodando Experimento 1/40: Sigma1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 1500
+   -> cmaes.reg_type = const
+ans = 0
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Salvando parâmetros da simulação em: Results_UHCMAES/2026-03-26_09-34-51/config_used.json
+warning: jsonencode: support for the "PrettyPrint" option of RapidJSON was unavailable or disabled when Octave was built
+warning: called from
+    UHCMAES at line 155 column 18
+    BatchRun_UHCMAES at line 160 column 9
+
+Resultados serão salvos na pasta: Results_UHCMAES/2026-03-26_09-34-51
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.39e+01 | Sigma=0.39 | Samples=11 | Div=1.17 | s_bar=-0.02 | reg_weight=5.00
+Gen 50: Fit=3.48e+01 | Sigma=0.35 | Samples=8 | Div=1.21 | s_bar=-0.04 | reg_weight=5.00
+Gen 75: Fit=3.49e+01 | Sigma=0.34 | Samples=22 | Div=1.01 | s_bar=0.04 | reg_weight=5.00
+Gen 100: Fit=3.40e+01 | Sigma=0.32 | Samples=3 | Div=0.94 | s_bar=-0.01 | reg_weight=5.00
+Gen 125: Fit=3.81e+01 | Sigma=0.36 | Samples=7 | Div=1.10 | s_bar=-0.03 | reg_weight=5.00
+Gen 150: Fit=3.46e+01 | Sigma=0.34 | Samples=22 | Div=1.04 | s_bar=0.03 | reg_weight=5.00
+Gen 175: Fit=3.41e+01 | Sigma=0.33 | Samples=33 | Div=0.98 | s_bar=0.02 | reg_weight=5.00
+Gen 200: Fit=3.50e+01 | Sigma=0.32 | Samples=10 | Div=0.97 | s_bar=-0.02 | reg_weight=5.00
+Gen 225: Fit=3.32e+01 | Sigma=0.30 | Samples=15 | Div=0.86 | s_bar=0.03 | reg_weight=5.00
+Gen 250: Fit=3.71e+01 | Sigma=0.40 | Samples=10 | Div=1.25 | s_bar=0.19 | reg_weight=5.00
+Gen 275: Fit=3.60e+01 | Sigma=0.37 | Samples=7 | Div=1.05 | s_bar=-0.01 | reg_weight=5.00
+Gen 300: Fit=3.46e+01 | Sigma=0.35 | Samples=10 | Div=1.05 | s_bar=0.02 | reg_weight=5.00
+Gen 325: Fit=3.32e+01 | Sigma=0.33 | Samples=33 | Div=0.95 | s_bar=0.02 | reg_weight=5.00
+Gen 350: Fit=3.42e+01 | Sigma=0.32 | Samples=22 | Div=1.00 | s_bar=-0.03 | reg_weight=5.00
+Gen 375: Fit=3.58e+01 | Sigma=0.37 | Samples=2 | Div=1.11 | s_bar=-0.03 | reg_weight=5.00
+Gen 400: Fit=3.65e+01 | Sigma=0.36 | Samples=7 | Div=1.08 | s_bar=-0.01 | reg_weight=5.00
+Gen 425: Fit=3.70e+01 | Sigma=0.34 | Samples=22 | Div=0.97 | s_bar=0.03 | reg_weight=5.00
+Gen 450: Fit=3.71e+01 | Sigma=0.32 | Samples=15 | Div=1.03 | s_bar=-0.03 | reg_weight=5.00
+Gen 475: Fit=3.99e+01 | Sigma=0.36 | Samples=15 | Div=1.10 | s_bar=0.01 | reg_weight=5.00
+Gen 500: Fit=3.63e+01 | Sigma=0.35 | Samples=4 | Div=1.03 | s_bar=0.12 | reg_weight=5.00
+Gen 525: Fit=3.69e+01 | Sigma=0.36 | Samples=33 | Div=1.05 | s_bar=0.09 | reg_weight=5.00
+Gen 550: Fit=3.93e+01 | Sigma=0.44 | Samples=3 | Div=1.26 | s_bar=-0.03 | reg_weight=5.00
+Gen 575: Fit=4.06e+01 | Sigma=0.44 | Samples=5 | Div=1.35 | s_bar=0.01 | reg_weight=5.00
+Gen 600: Fit=4.32e+01 | Sigma=0.43 | Samples=8 | Div=1.32 | s_bar=0.01 | reg_weight=5.00
+Gen 625: Fit=4.20e+01 | Sigma=0.42 | Samples=11 | Div=1.33 | s_bar=0.01 | reg_weight=5.00
+Gen 650: Fit=3.72e+01 | Sigma=0.40 | Samples=3 | Div=1.27 | s_bar=0.06 | reg_weight=5.00
+Gen 675: Fit=3.83e+01 | Sigma=0.39 | Samples=11 | Div=1.14 | s_bar=0.01 | reg_weight=5.00
+Gen 700: Fit=3.69e+01 | Sigma=0.37 | Samples=8 | Div=1.11 | s_bar=-0.03 | reg_weight=5.00
+Gen 725: Fit=3.71e+01 | Sigma=0.36 | Samples=26 | Div=1.05 | s_bar=0.04 | reg_weight=5.00
+Gen 750: Fit=3.79e+01 | Sigma=0.35 | Samples=8 | Div=1.03 | s_bar=-0.05 | reg_weight=5.00
+Gen 775: Fit=3.53e+01 | Sigma=0.34 | Samples=11 | Div=1.03 | s_bar=-0.06 | reg_weight=5.00
+Gen 800: Fit=3.55e+01 | Sigma=0.33 | Samples=8 | Div=0.96 | s_bar=-0.01 | reg_weight=5.00
+Gen 825: Fit=3.70e+01 | Sigma=0.39 | Samples=7 | Div=1.20 | s_bar=-0.02 | reg_weight=5.00
+Gen 850: Fit=3.89e+01 | Sigma=0.38 | Samples=22 | Div=1.25 | s_bar=0.02 | reg_weight=5.00
+Gen 875: Fit=3.78e+01 | Sigma=0.37 | Samples=7 | Div=1.13 | s_bar=-0.06 | reg_weight=5.00
+Gen 900: Fit=3.65e+01 | Sigma=0.36 | Samples=10 | Div=1.11 | s_bar=0.02 | reg_weight=5.00
+Gen 925: Fit=3.44e+01 | Sigma=0.35 | Samples=7 | Div=1.06 | s_bar=-0.02 | reg_weight=5.00
+Gen 950: Fit=3.58e+01 | Sigma=0.34 | Samples=22 | Div=1.02 | s_bar=-0.05 | reg_weight=5.00
+Gen 975: Fit=3.56e+01 | Sigma=0.33 | Samples=15 | Div=1.02 | s_bar=-0.07 | reg_weight=5.00
+Gen 1000: Fit=3.47e+01 | Sigma=0.33 | Samples=22 | Div=0.93 | s_bar=0.05 | reg_weight=5.00
+Gen 1025: Fit=3.95e+01 | Sigma=0.46 | Samples=3 | Div=1.37 | s_bar=0.04 | reg_weight=5.00
+Gen 1050: Fit=3.97e+01 | Sigma=0.45 | Samples=4 | Div=1.30 | s_bar=0.08 | reg_weight=5.00
+Gen 1075: Fit=3.81e+01 | Sigma=0.45 | Samples=7 | Div=1.32 | s_bar=-0.02 | reg_weight=5.00
+Gen 1100: Fit=3.97e+01 | Sigma=0.44 | Samples=10 | Div=1.32 | s_bar=0.04 | reg_weight=5.00
+Gen 1125: Fit=3.85e+01 | Sigma=0.43 | Samples=8 | Div=1.32 | s_bar=0.02 | reg_weight=5.00
+Gen 1150: Fit=3.72e+01 | Sigma=0.40 | Samples=2 | Div=1.23 | s_bar=-0.08 | reg_weight=5.00
+Gen 1175: Fit=3.80e+01 | Sigma=0.40 | Samples=3 | Div=1.14 | s_bar=-0.03 | reg_weight=5.00
+Gen 1200: Fit=3.81e+01 | Sigma=0.39 | Samples=5 | Div=1.20 | s_bar=-0.02 | reg_weight=5.00
+Gen 1225: Fit=3.86e+01 | Sigma=0.39 | Samples=11 | Div=1.13 | s_bar=0.03 | reg_weight=5.00
+Gen 1250: Fit=3.58e+01 | Sigma=0.38 | Samples=2 | Div=1.10 | s_bar=-0.02 | reg_weight=5.00
+Gen 1275: Fit=3.71e+01 | Sigma=0.35 | Samples=5 | Div=1.06 | s_bar=0.07 | reg_weight=5.00
+Gen 1300: Fit=3.58e+01 | Sigma=0.33 | Samples=17 | Div=1.01 | s_bar=0.09 | reg_weight=5.00
+Gen 1325: Fit=3.69e+01 | Sigma=0.46 | Samples=50 | Div=1.15 | s_bar=0.00 | reg_weight=5.00
+Gen 1350: Fit=4.20e+01 | Sigma=0.44 | Samples=5 | Div=1.31 | s_bar=-0.08 | reg_weight=5.00
+Gen 1375: Fit=3.77e+01 | Sigma=0.42 | Samples=8 | Div=1.17 | s_bar=-0.02 | reg_weight=5.00
+Gen 1400: Fit=3.82e+01 | Sigma=0.41 | Samples=5 | Div=1.22 | s_bar=0.03 | reg_weight=5.00
+Gen 1425: Fit=3.92e+01 | Sigma=0.39 | Samples=8 | Div=1.18 | s_bar=-0.04 | reg_weight=5.00
+Gen 1450: Fit=3.69e+01 | Sigma=0.37 | Samples=10 | Div=1.14 | s_bar=-0.05 | reg_weight=5.00
+Gen 1475: Fit=3.97e+01 | Sigma=0.42 | Samples=10 | Div=1.26 | s_bar=0.01 | reg_weight=5.00
+Gen 1500: Fit=3.81e+01 | Sigma=0.41 | Samples=15 | Div=1.21 | s_bar=0.00 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 122.31 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Sigma1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 2/40: Sigma2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 1
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 1500
+   -> cmaes.reg_type = const
+ans = 0
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Salvando parâmetros da simulação em: Results_UHCMAES/2026-03-26_09-36-56/config_used.json
+warning: jsonencode: support for the "PrettyPrint" option of RapidJSON was unavailable or disabled when Octave was built
+warning: called from
+    UHCMAES at line 155 column 18
+    BatchRun_UHCMAES at line 160 column 9
+
+Resultados serão salvos na pasta: Results_UHCMAES/2026-03-26_09-36-56
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=5.53e+01 | Sigma=0.79 | Samples=1 | Div=2.32 | s_bar=-0.07 | reg_weight=5.00
+Gen 50: Fit=5.71e+01 | Sigma=0.72 | Samples=1 | Div=2.21 | s_bar=-0.04 | reg_weight=5.00
+Gen 75: Fit=4.96e+01 | Sigma=0.69 | Samples=1 | Div=2.11 | s_bar=-0.06 | reg_weight=5.00
+Gen 100: Fit=4.81e+01 | Sigma=0.68 | Samples=1 | Div=1.89 | s_bar=-0.02 | reg_weight=5.00
+Gen 125: Fit=4.94e+01 | Sigma=0.66 | Samples=1 | Div=1.91 | s_bar=-0.05 | reg_weight=5.00
+Gen 150: Fit=5.33e+01 | Sigma=0.68 | Samples=1 | Div=1.92 | s_bar=-0.02 | reg_weight=5.00
+Gen 175: Fit=5.79e+01 | Sigma=0.70 | Samples=1 | Div=2.12 | s_bar=-0.06 | reg_weight=5.00
+Gen 200: Fit=4.68e+01 | Sigma=0.69 | Samples=1 | Div=2.06 | s_bar=-0.06 | reg_weight=5.00
+Gen 225: Fit=4.91e+01 | Sigma=0.65 | Samples=1 | Div=2.01 | s_bar=-0.06 | reg_weight=5.00
+Gen 250: Fit=4.55e+01 | Sigma=0.62 | Samples=1 | Div=2.01 | s_bar=-0.03 | reg_weight=5.00
+Gen 275: Fit=4.58e+01 | Sigma=0.58 | Samples=2 | Div=1.71 | s_bar=-0.06 | reg_weight=5.00
+Gen 300: Fit=4.71e+01 | Sigma=0.56 | Samples=2 | Div=1.65 | s_bar=0.01 | reg_weight=5.00
+Gen 325: Fit=4.08e+01 | Sigma=0.54 | Samples=1 | Div=1.56 | s_bar=-0.02 | reg_weight=5.00
+Gen 350: Fit=4.05e+01 | Sigma=0.52 | Samples=2 | Div=1.64 | s_bar=0.05 | reg_weight=5.00
+Gen 375: Fit=4.28e+01 | Sigma=0.49 | Samples=3 | Div=1.53 | s_bar=-0.01 | reg_weight=5.00
+Gen 400: Fit=3.90e+01 | Sigma=0.47 | Samples=2 | Div=1.36 | s_bar=0.01 | reg_weight=5.00
+Gen 425: Fit=4.52e+01 | Sigma=0.44 | Samples=8 | Div=1.40 | s_bar=-0.01 | reg_weight=5.00
+Gen 450: Fit=4.27e+01 | Sigma=0.41 | Samples=11 | Div=1.18 | s_bar=0.03 | reg_weight=5.00
+Gen 475: Fit=3.92e+01 | Sigma=0.38 | Samples=2 | Div=1.14 | s_bar=-0.03 | reg_weight=5.00
+Gen 500: Fit=4.07e+01 | Sigma=0.37 | Samples=11 | Div=1.13 | s_bar=0.11 | reg_weight=5.00
+Gen 525: Fit=4.28e+01 | Sigma=0.44 | Samples=22 | Div=1.23 | s_bar=-0.06 | reg_weight=5.00
+Gen 550: Fit=4.12e+01 | Sigma=0.42 | Samples=15 | Div=1.28 | s_bar=-0.05 | reg_weight=5.00
+Gen 575: Fit=3.86e+01 | Sigma=0.40 | Samples=4 | Div=1.12 | s_bar=0.03 | reg_weight=5.00
+Gen 600: Fit=4.03e+01 | Sigma=0.39 | Samples=3 | Div=1.18 | s_bar=0.09 | reg_weight=5.00
+Gen 625: Fit=4.11e+01 | Sigma=0.37 | Samples=4 | Div=1.12 | s_bar=0.00 | reg_weight=5.00
+Gen 650: Fit=3.90e+01 | Sigma=0.35 | Samples=15 | Div=1.03 | s_bar=-0.05 | reg_weight=5.00
+Gen 675: Fit=4.14e+01 | Sigma=0.34 | Samples=22 | Div=1.02 | s_bar=0.00 | reg_weight=5.00
+Gen 700: Fit=4.08e+01 | Sigma=0.32 | Samples=33 | Div=0.97 | s_bar=0.02 | reg_weight=5.00
+Gen 725: Fit=3.96e+01 | Sigma=0.32 | Samples=22 | Div=0.98 | s_bar=0.07 | reg_weight=5.00
+Gen 750: Fit=3.80e+01 | Sigma=0.32 | Samples=7 | Div=0.90 | s_bar=-0.02 | reg_weight=5.00
+Gen 775: Fit=3.83e+01 | Sigma=0.31 | Samples=22 | Div=0.94 | s_bar=0.03 | reg_weight=5.00
+Gen 800: Fit=3.98e+01 | Sigma=0.43 | Samples=7 | Div=1.21 | s_bar=0.03 | reg_weight=5.00
+Gen 825: Fit=3.84e+01 | Sigma=0.41 | Samples=4 | Div=1.24 | s_bar=-0.02 | reg_weight=5.00
+Gen 850: Fit=3.96e+01 | Sigma=0.37 | Samples=15 | Div=1.19 | s_bar=0.03 | reg_weight=5.00
+Gen 875: Fit=4.02e+01 | Sigma=0.41 | Samples=7 | Div=1.16 | s_bar=-0.07 | reg_weight=5.00
+Gen 900: Fit=4.00e+01 | Sigma=0.40 | Samples=4 | Div=1.19 | s_bar=-0.06 | reg_weight=5.00
+Gen 925: Fit=3.93e+01 | Sigma=0.40 | Samples=7 | Div=1.19 | s_bar=-0.04 | reg_weight=5.00
+Gen 950: Fit=3.95e+01 | Sigma=0.39 | Samples=10 | Div=1.14 | s_bar=-0.00 | reg_weight=5.00
+Gen 975: Fit=4.04e+01 | Sigma=0.38 | Samples=15 | Div=1.06 | s_bar=0.02 | reg_weight=5.00
+Gen 1000: Fit=3.85e+01 | Sigma=0.35 | Samples=4 | Div=1.09 | s_bar=0.05 | reg_weight=5.00
+Gen 1025: Fit=3.86e+01 | Sigma=0.39 | Samples=50 | Div=1.01 | s_bar=0.02 | reg_weight=5.00
+Gen 1050: Fit=3.92e+01 | Sigma=0.36 | Samples=7 | Div=1.07 | s_bar=-0.05 | reg_weight=5.00
+Gen 1075: Fit=3.85e+01 | Sigma=0.36 | Samples=22 | Div=1.10 | s_bar=0.00 | reg_weight=5.00
+Gen 1100: Fit=4.00e+01 | Sigma=0.34 | Samples=15 | Div=0.97 | s_bar=-0.04 | reg_weight=5.00
+Gen 1125: Fit=3.79e+01 | Sigma=0.33 | Samples=10 | Div=1.03 | s_bar=-0.01 | reg_weight=5.00
+Gen 1150: Fit=3.85e+01 | Sigma=0.32 | Samples=15 | Div=0.99 | s_bar=-0.04 | reg_weight=5.00
+Gen 1175: Fit=3.68e+01 | Sigma=0.31 | Samples=50 | Div=0.90 | s_bar=0.07 | reg_weight=5.00
+Gen 1200: Fit=3.68e+01 | Sigma=0.36 | Samples=10 | Div=1.15 | s_bar=0.07 | reg_weight=5.00
+Gen 1225: Fit=3.79e+01 | Sigma=0.35 | Samples=7 | Div=1.01 | s_bar=-0.00 | reg_weight=5.00
+Gen 1250: Fit=3.74e+01 | Sigma=0.34 | Samples=4 | Div=0.98 | s_bar=-0.08 | reg_weight=5.00
+Gen 1275: Fit=3.85e+01 | Sigma=0.41 | Samples=4 | Div=1.19 | s_bar=0.00 | reg_weight=5.00
+Gen 1300: Fit=3.81e+01 | Sigma=0.38 | Samples=8 | Div=1.15 | s_bar=-0.03 | reg_weight=5.00
+Gen 1325: Fit=3.90e+01 | Sigma=0.37 | Samples=10 | Div=1.09 | s_bar=-0.08 | reg_weight=5.00
+Gen 1350: Fit=3.81e+01 | Sigma=0.36 | Samples=7 | Div=1.07 | s_bar=-0.03 | reg_weight=5.00
+Gen 1375: Fit=3.88e+01 | Sigma=0.37 | Samples=10 | Div=1.10 | s_bar=-0.02 | reg_weight=5.00
+Gen 1400: Fit=3.87e+01 | Sigma=0.37 | Samples=15 | Div=1.06 | s_bar=0.03 | reg_weight=5.00
+Gen 1425: Fit=3.71e+01 | Sigma=0.36 | Samples=50 | Div=1.05 | s_bar=0.02 | reg_weight=5.00
+Gen 1450: Fit=3.67e+01 | Sigma=0.34 | Samples=15 | Div=1.01 | s_bar=0.03 | reg_weight=5.00
+Gen 1475: Fit=3.46e+01 | Sigma=0.33 | Samples=10 | Div=0.94 | s_bar=-0.01 | reg_weight=5.00
+Gen 1500: Fit=3.61e+01 | Sigma=0.31 | Samples=33 | Div=0.90 | s_bar=0.03 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 114.89 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Sigma2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 3/40: Sigma3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 1.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 1500
+   -> cmaes.reg_type = const
+ans = 0
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Salvando parâmetros da simulação em: Results_UHCMAES/2026-03-26_09-38-53/config_used.json
+warning: jsonencode: support for the "PrettyPrint" option of RapidJSON was unavailable or disabled when Octave was built
+warning: called from
+    UHCMAES at line 155 column 18
+    BatchRun_UHCMAES at line 160 column 9
+
+Resultados serão salvos na pasta: Results_UHCMAES/2026-03-26_09-38-53
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=7.92e+01 | Sigma=1.18 | Samples=1 | Div=3.55 | s_bar=-0.13 | reg_weight=5.00
+Gen 50: Fit=7.49e+01 | Sigma=1.11 | Samples=1 | Div=3.36 | s_bar=-0.15 | reg_weight=5.00
+Gen 75: Fit=8.98e+01 | Sigma=1.08 | Samples=1 | Div=3.20 | s_bar=-0.13 | reg_weight=5.00
+Gen 100: Fit=6.37e+01 | Sigma=1.07 | Samples=1 | Div=3.09 | s_bar=-0.13 | reg_weight=5.00
+Gen 125: Fit=7.69e+01 | Sigma=1.01 | Samples=1 | Div=3.31 | s_bar=-0.13 | reg_weight=5.00
+Gen 150: Fit=7.63e+01 | Sigma=0.94 | Samples=1 | Div=2.98 | s_bar=-0.10 | reg_weight=5.00
+Gen 175: Fit=7.40e+01 | Sigma=0.90 | Samples=1 | Div=2.71 | s_bar=-0.09 | reg_weight=5.00
+Gen 200: Fit=7.33e+01 | Sigma=0.85 | Samples=1 | Div=2.63 | s_bar=-0.10 | reg_weight=5.00
+Gen 225: Fit=7.05e+01 | Sigma=0.83 | Samples=1 | Div=2.43 | s_bar=-0.08 | reg_weight=5.00
+Gen 250: Fit=6.60e+01 | Sigma=0.81 | Samples=1 | Div=2.37 | s_bar=-0.03 | reg_weight=5.00
+Gen 275: Fit=6.10e+01 | Sigma=0.77 | Samples=1 | Div=2.22 | s_bar=-0.08 | reg_weight=5.00
+Gen 300: Fit=6.05e+01 | Sigma=0.71 | Samples=1 | Div=2.29 | s_bar=-0.06 | reg_weight=5.00
+Gen 325: Fit=5.71e+01 | Sigma=0.67 | Samples=2 | Div=1.88 | s_bar=0.01 | reg_weight=5.00
+Gen 350: Fit=6.04e+01 | Sigma=0.65 | Samples=2 | Div=2.07 | s_bar=0.01 | reg_weight=5.00
+Gen 375: Fit=4.81e+01 | Sigma=0.61 | Samples=1 | Div=1.77 | s_bar=-0.06 | reg_weight=5.00
+Gen 400: Fit=5.30e+01 | Sigma=0.59 | Samples=2 | Div=1.85 | s_bar=-0.01 | reg_weight=5.00
+Gen 425: Fit=5.33e+01 | Sigma=0.56 | Samples=2 | Div=1.72 | s_bar=0.01 | reg_weight=5.00
+Gen 450: Fit=5.00e+01 | Sigma=0.54 | Samples=2 | Div=1.56 | s_bar=0.00 | reg_weight=5.00
+Gen 475: Fit=5.18e+01 | Sigma=0.53 | Samples=2 | Div=1.63 | s_bar=0.00 | reg_weight=5.00
+Gen 500: Fit=4.81e+01 | Sigma=0.51 | Samples=1 | Div=1.55 | s_bar=-0.01 | reg_weight=5.00
+Gen 525: Fit=4.99e+01 | Sigma=0.50 | Samples=8 | Div=1.54 | s_bar=0.04 | reg_weight=5.00
+Gen 550: Fit=4.63e+01 | Sigma=0.49 | Samples=11 | Div=1.43 | s_bar=-0.02 | reg_weight=5.00
+Gen 575: Fit=4.64e+01 | Sigma=0.48 | Samples=3 | Div=1.54 | s_bar=0.00 | reg_weight=5.00
+Gen 600: Fit=4.55e+01 | Sigma=0.48 | Samples=3 | Div=1.33 | s_bar=0.08 | reg_weight=5.00
+Gen 625: Fit=4.50e+01 | Sigma=0.47 | Samples=5 | Div=1.38 | s_bar=-0.01 | reg_weight=5.00
+Gen 650: Fit=4.32e+01 | Sigma=0.45 | Samples=11 | Div=1.30 | s_bar=-0.01 | reg_weight=5.00
+Gen 675: Fit=4.41e+01 | Sigma=0.43 | Samples=5 | Div=1.34 | s_bar=0.01 | reg_weight=5.00
+Gen 700: Fit=4.32e+01 | Sigma=0.43 | Samples=3 | Div=1.38 | s_bar=-0.05 | reg_weight=error: Arquivo Experiments/experiments3.csv não encontrado. Crie o CSV com os cenários.
+error: called from
+    BatchRun_UHCMAES at line 24 column 5
+>> BatchRun_UHCMAES
+Backup da configuração original salvo em config_backup.json
+Iniciando bateria de 36 experimentos via CSV no Octave...
+
+---------------------------------------------------
+Rodando Experimento 1/36: Norm1_Stop1_Reg1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-05-13\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-05-13
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=4.01e+01 | Sigma=0.39 | Samples=1 | Div=1.54 | s_bar=-0.02 | reg_weight=5.00
+Gen 50: Fit=3.91e+01 | Sigma=0.36 | Samples=3 | Div=1.31 | s_bar=0.02 | reg_weight=5.00
+Gen 75: Fit=3.64e+01 | Sigma=0.33 | Samples=5 | Div=1.37 | s_bar=-0.05 | reg_weight=5.00
+Gen 100: Fit=3.52e+01 | Sigma=0.31 | Samples=3 | Div=1.27 | s_bar=-0.03 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 3.75 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 2/36: Norm2_Stop2_Reg1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-05-18\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-05-18
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=2.49e+02 | Sigma=0.39 | Samples=1 | Div=6.42 | s_bar=-0.19 | reg_weight=5.00
+Gen 50: Fit=2.08e+02 | Sigma=0.35 | Samples=1 | Div=6.11 | s_bar=-0.18 | reg_weight=5.00
+Gen 75: Fit=1.58e+02 | Sigma=0.34 | Samples=1 | Div=5.65 | s_bar=-0.17 | reg_weight=5.00
+Gen 100: Fit=1.99e+02 | Sigma=0.32 | Samples=1 | Div=5.19 | s_bar=-0.17 | reg_weight=5.00
+Gen 125: Fit=2.17e+02 | Sigma=0.31 | Samples=1 | Div=5.21 | s_bar=-0.16 | reg_weight=5.00
+Gen 150: Fit=2.07e+02 | Sigma=0.30 | Samples=1 | Div=5.26 | s_bar=-0.17 | reg_weight=5.00
+Gen 175: Fit=1.75e+02 | Sigma=0.29 | Samples=1 | Div=4.86 | s_bar=-0.17 | reg_weight=5.00
+Gen 200: Fit=1.61e+02 | Sigma=0.27 | Samples=1 | Div=4.68 | s_bar=-0.17 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 6.78 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 3/36: Norm3_Stop3_Reg1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = log
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: log
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-05-26\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-05-26
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.75e+01 | Sigma=1.37 | Samples=4 | Div=1.30 | s_bar=0.03 | reg_weight=5.00
+Gen 50: Fit=3.56e+01 | Sigma=1.26 | Samples=7 | Div=1.24 | s_bar=0.06 | reg_weight=5.00
+Gen 75: Fit=3.65e+01 | Sigma=1.24 | Samples=50 | Div=1.17 | s_bar=0.01 | reg_weight=5.00
+Gen 100: Fit=3.78e+01 | Sigma=1.20 | Samples=7 | Div=1.11 | s_bar=-0.04 | reg_weight=5.00
+Gen 125: Fit=3.80e+01 | Sigma=1.18 | Samples=4 | Div=1.06 | s_bar=-0.04 | reg_weight=5.00
+Gen 150: Fit=3.71e+01 | Sigma=1.11 | Samples=7 | Div=1.11 | s_bar=-0.06 | reg_weight=5.00
+Gen 175: Fit=3.71e+01 | Sigma=1.05 | Samples=10 | Div=0.98 | s_bar=0.12 | reg_weight=5.00
+Gen 200: Fit=3.97e+01 | Sigma=1.45 | Samples=7 | Div=1.40 | s_bar=-0.05 | reg_weight=5.00
+Gen 225: Fit=3.96e+01 | Sigma=1.38 | Samples=2 | Div=1.26 | s_bar=-0.03 | reg_weight=5.00
+Gen 250: Fit=4.06e+01 | Sigma=1.30 | Samples=15 | Div=1.24 | s_bar=0.02 | reg_weight=5.00
+Gen 275: Fit=3.93e+01 | Sigma=1.25 | Samples=5 | Div=1.16 | s_bar=-0.04 | reg_weight=5.00
+Gen 300: Fit=3.67e+01 | Sigma=1.20 | Samples=8 | Div=1.18 | s_bar=-0.03 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 12.88 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm3_Stop3_Reg1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 4/36: Norm1_Stop1_Reg1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-05-41\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-05-41
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=4.08e+01 | Sigma=0.39 | Samples=1 | Div=1.55 | s_bar=-0.04 | reg_weight=5.00
+Gen 50: Fit=3.89e+01 | Sigma=0.36 | Samples=2 | Div=1.36 | s_bar=-0.02 | reg_weight=5.00
+Gen 75: Fit=3.93e+01 | Sigma=0.34 | Samples=17 | Div=1.27 | s_bar=0.03 | reg_weight=5.00
+Gen 100: Fit=3.85e+01 | Sigma=0.32 | Samples=25 | Div=1.28 | s_bar=0.04 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 3.66 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 5/36: Norm2_Stop2_Reg1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-05-46\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-05-46
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=2.10e+02 | Sigma=0.39 | Samples=1 | Div=6.73 | s_bar=-0.18 | reg_weight=5.00
+Gen 50: Fit=1.78e+02 | Sigma=0.35 | Samples=1 | Div=6.08 | s_bar=-0.19 | reg_weight=5.00
+Gen 75: Fit=1.89e+02 | Sigma=0.32 | Samples=1 | Div=5.42 | s_bar=-0.17 | reg_weight=5.00
+Gen 100: Fit=1.98e+02 | Sigma=0.31 | Samples=1 | Div=4.92 | s_bar=-0.16 | reg_weight=5.00
+Gen 125: Fit=1.64e+02 | Sigma=0.29 | Samples=1 | Div=5.19 | s_bar=-0.13 | reg_weight=5.00
+Gen 150: Fit=1.52e+02 | Sigma=0.29 | Samples=1 | Div=4.68 | s_bar=-0.16 | reg_weight=5.00
+Gen 175: Fit=1.80e+02 | Sigma=0.28 | Samples=1 | Div=4.80 | s_bar=-0.17 | reg_weight=5.00
+Gen 200: Fit=1.59e+02 | Sigma=0.26 | Samples=1 | Div=4.32 | s_bar=-0.16 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 6.93 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 6/36: Norm3_Stop3_Reg1_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = log
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: log
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-05-54\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-05-54
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.49e+01 | Sigma=0.98 | Samples=10 | Div=0.94 | s_bar=-0.02 | reg_weight=5.00
+Gen 50: Fit=3.66e+01 | Sigma=1.07 | Samples=22 | Div=1.03 | s_bar=0.04 | reg_weight=5.00
+Gen 75: Fit=3.62e+01 | Sigma=1.02 | Samples=33 | Div=0.92 | s_bar=0.08 | reg_weight=5.00
+Gen 100: Fit=3.43e+01 | Sigma=0.97 | Samples=22 | Div=0.89 | s_bar=0.00 | reg_weight=5.00
+Gen 125: Fit=3.41e+01 | Sigma=0.91 | Samples=33 | Div=0.84 | s_bar=0.03 | reg_weight=5.00
+Gen 150: Fit=3.50e+01 | Sigma=1.23 | Samples=10 | Div=1.14 | s_bar=0.00 | reg_weight=5.00
+Gen 175: Fit=3.71e+01 | Sigma=1.16 | Samples=3 | Div=1.07 | s_bar=-0.00 | reg_weight=5.00
+Gen 200: Fit=3.84e+01 | Sigma=1.32 | Samples=3 | Div=1.23 | s_bar=0.02 | reg_weight=5.00
+Gen 225: Fit=3.84e+01 | Sigma=1.23 | Samples=10 | Div=1.14 | s_bar=0.10 | reg_weight=5.00
+Gen 250: Fit=3.70e+01 | Sigma=1.16 | Samples=7 | Div=1.16 | s_bar=0.06 | reg_weight=5.00
+Gen 275: Fit=3.75e+01 | Sigma=1.08 | Samples=22 | Div=1.02 | s_bar=-0.04 | reg_weight=5.00
+Gen 300: Fit=3.63e+01 | Sigma=0.99 | Samples=15 | Div=0.95 | s_bar=0.14 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 13.90 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm3_Stop3_Reg1_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 7/36: Norm1_Stop1_Reg2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = 5_exp001
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-06-10\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-06-10
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=4.15e+01 | Sigma=0.40 | Samples=2 | Div=1.55 | s_bar=0.03 | reg_weight=4.88
+Gen 50: Fit=4.11e+01 | Sigma=0.37 | Samples=5 | Div=1.38 | s_bar=0.04 | reg_weight=4.76
+Gen 75: Fit=3.90e+01 | Sigma=0.37 | Samples=17 | Div=1.35 | s_bar=0.00 | reg_weight=4.64
+Gen 100: Fit=3.81e+01 | Sigma=0.36 | Samples=2 | Div=1.39 | s_bar=-0.00 | reg_weight=4.52
+Execução estrita do algoritmo UHCMAES concluída em 3.79 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 8/36: Norm2_Stop2_Reg2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = 5_exp001
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-06-15\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-06-15
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=2.82e+02 | Sigma=0.40 | Samples=1 | Div=7.26 | s_bar=-0.18 | reg_weight=4.88
+Gen 50: Fit=2.22e+02 | Sigma=0.37 | Samples=1 | Div=6.43 | s_bar=-0.18 | reg_weight=4.76
+Gen 75: Fit=2.15e+02 | Sigma=0.35 | Samples=1 | Div=5.72 | s_bar=-0.18 | reg_weight=4.64
+Gen 100: Fit=1.98e+02 | Sigma=0.34 | Samples=1 | Div=5.59 | s_bar=-0.16 | reg_weight=4.52
+Gen 125: Fit=1.72e+02 | Sigma=0.32 | Samples=1 | Div=5.57 | s_bar=-0.17 | reg_weight=4.41
+Gen 150: Fit=1.42e+02 | Sigma=0.30 | Samples=1 | Div=5.05 | s_bar=-0.17 | reg_weight=4.30
+Gen 175: Fit=1.46e+02 | Sigma=0.28 | Samples=1 | Div=4.49 | s_bar=-0.17 | reg_weight=4.20
+Gen 200: Fit=1.27e+02 | Sigma=0.27 | Samples=1 | Div=4.79 | s_bar=-0.16 | reg_weight=4.09
+Execução estrita do algoritmo UHCMAES concluída em 6.60 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 9/36: Norm3_Stop3_Reg2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = 5_exp001
+   -> physics.normalization.method = log
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: log
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-06-23\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-06-23
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.43e+01 | Sigma=1.15 | Samples=15 | Div=1.12 | s_bar=-0.03 | reg_weight=4.88
+Gen 50: Fit=3.36e+01 | Sigma=1.05 | Samples=2 | Div=1.04 | s_bar=-0.02 | reg_weight=4.76
+Gen 75: Fit=3.56e+01 | Sigma=1.17 | Samples=22 | Div=1.10 | s_bar=0.00 | reg_weight=4.64
+Gen 100: Fit=3.50e+01 | Sigma=1.08 | Samples=3 | Div=1.06 | s_bar=-0.00 | reg_weight=4.52
+Gen 125: Fit=3.52e+01 | Sigma=1.02 | Samples=22 | Div=0.98 | s_bar=-0.06 | reg_weight=4.41
+Gen 150: Fit=3.46e+01 | Sigma=1.18 | Samples=10 | Div=1.11 | s_bar=-0.08 | reg_weight=4.30
+Gen 175: Fit=3.50e+01 | Sigma=1.14 | Samples=33 | Div=1.08 | s_bar=-0.01 | reg_weight=4.20
+Gen 200: Fit=3.78e+01 | Sigma=1.31 | Samples=15 | Div=1.23 | s_bar=0.03 | reg_weight=4.09
+Gen 225: Fit=3.82e+01 | Sigma=1.55 | Samples=15 | Div=1.39 | s_bar=-0.06 | reg_weight=3.99
+Gen 250: Fit=4.00e+01 | Sigma=1.50 | Samples=2 | Div=1.35 | s_bar=-0.03 | reg_weight=3.89
+Gen 275: Fit=3.70e+01 | Sigma=1.41 | Samples=15 | Div=1.33 | s_bar=-0.04 | reg_weight=3.80
+Gen 300: Fit=3.65e+01 | Sigma=1.35 | Samples=10 | Div=1.22 | s_bar=0.02 | reg_weight=3.70
+Execução estrita do algoritmo UHCMAES concluída em 13.53 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm3_Stop3_Reg2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 10/36: Norm1_Stop1_Reg2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = 5_exp001
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-06-38\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-06-38
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=4.01e+01 | Sigma=0.39 | Samples=17 | Div=1.52 | s_bar=0.00 | reg_weight=4.88
+Gen 50: Fit=3.97e+01 | Sigma=0.35 | Samples=5 | Div=1.33 | s_bar=-0.04 | reg_weight=4.76
+Gen 75: Fit=3.67e+01 | Sigma=0.33 | Samples=15 | Div=1.25 | s_bar=0.02 | reg_weight=4.64
+Gen 100: Fit=3.66e+01 | Sigma=0.31 | Samples=4 | Div=1.25 | s_bar=0.01 | reg_weight=4.52
+Execução estrita do algoritmo UHCMAES concluída em 3.80 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 11/36: Norm2_Stop2_Reg2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = 5_exp001
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-06-44\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-06-44
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=2.83e+02 | Sigma=0.39 | Samples=1 | Div=6.77 | s_bar=-0.18 | reg_weight=4.88
+Gen 50: Fit=2.28e+02 | Sigma=0.35 | Samples=1 | Div=6.05 | s_bar=-0.18 | reg_weight=4.76
+Gen 75: Fit=1.65e+02 | Sigma=0.33 | Samples=1 | Div=5.33 | s_bar=-0.18 | reg_weight=4.64
+Gen 100: Fit=1.42e+02 | Sigma=0.31 | Samples=1 | Div=5.20 | s_bar=-0.18 | reg_weight=4.52
+Gen 125: Fit=1.58e+02 | Sigma=0.31 | Samples=1 | Div=5.10 | s_bar=-0.18 | reg_weight=4.41
+Gen 150: Fit=1.34e+02 | Sigma=0.29 | Samples=1 | Div=5.20 | s_bar=-0.17 | reg_weight=4.30
+Gen 175: Fit=1.35e+02 | Sigma=0.28 | Samples=1 | Div=4.74 | s_bar=-0.15 | reg_weight=4.20
+Gen 200: Fit=1.33e+02 | Sigma=0.26 | Samples=1 | Div=4.34 | s_bar=-0.12 | reg_weight=4.09
+Execução estrita do algoritmo UHCMAES concluída em 6.82 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 12/36: Norm3_Stop3_Reg2_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = 5_exp001
+   -> physics.normalization.method = log
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: log
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-06-52\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-06-52
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.27e+01 | Sigma=0.97 | Samples=4 | Div=0.87 | s_bar=0.13 | reg_weight=4.88
+Gen 50: Fit=3.28e+01 | Sigma=0.86 | Samples=33 | Div=0.80 | s_bar=0.01 | reg_weight=4.76
+Gen 75: Fit=3.32e+01 | Sigma=0.96 | Samples=15 | Div=0.88 | s_bar=0.07 | reg_weight=4.64
+Gen 100: Fit=3.53e+01 | Sigma=1.10 | Samples=7 | Div=1.04 | s_bar=0.04 | reg_weight=4.52
+Gen 125: Fit=3.55e+01 | Sigma=1.07 | Samples=22 | Div=0.99 | s_bar=0.01 | reg_weight=4.41
+Gen 150: Fit=3.53e+01 | Sigma=1.06 | Samples=7 | Div=0.99 | s_bar=-0.00 | reg_weight=4.30
+Gen 175: Fit=3.68e+01 | Sigma=1.22 | Samples=15 | Div=1.12 | s_bar=-0.01 | reg_weight=4.20
+Gen 200: Fit=3.54e+01 | Sigma=1.13 | Samples=10 | Div=1.08 | s_bar=-0.00 | reg_weight=4.09
+Gen 225: Fit=3.74e+01 | Sigma=1.27 | Samples=2 | Div=1.22 | s_bar=-0.00 | reg_weight=3.99
+Gen 250: Fit=3.72e+01 | Sigma=1.21 | Samples=15 | Div=1.08 | s_bar=0.03 | reg_weight=3.89
+Gen 275: Fit=3.38e+01 | Sigma=1.15 | Samples=4 | Div=1.03 | s_bar=-0.02 | reg_weight=3.80
+Gen 300: Fit=3.71e+01 | Sigma=1.31 | Samples=10 | Div=1.22 | s_bar=0.05 | reg_weight=3.70
+Execução estrita do algoritmo UHCMAES concluída em 15.94 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm3_Stop3_Reg2_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 13/36: Norm1_Stop1_Reg3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = sigma_exp0001
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-07-10\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-07-10
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.97e+01 | Sigma=0.79 | Samples=7 | Div=3.02 | s_bar=-0.00 | reg_weight=0.79
+Gen 50: Fit=3.41e+01 | Sigma=0.70 | Samples=22 | Div=2.71 | s_bar=-0.04 | reg_weight=0.70
+Gen 75: Fit=3.53e+01 | Sigma=0.78 | Samples=22 | Div=2.90 | s_bar=-0.05 | reg_weight=0.77
+Gen 100: Fit=3.54e+01 | Sigma=0.75 | Samples=7 | Div=2.77 | s_bar=0.09 | reg_weight=0.74
+Execução estrita do algoritmo UHCMAES concluída em 4.58 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg3_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 14/36: Norm2_Stop2_Reg3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = sigma_exp0001
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-07-16\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-07-16
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=4.70e+01 | Sigma=0.39 | Samples=2 | Div=6.82 | s_bar=0.01 | reg_weight=0.39
+Gen 50: Fit=4.34e+01 | Sigma=0.36 | Samples=5 | Div=6.14 | s_bar=0.02 | reg_weight=0.36
+Gen 75: Fit=4.13e+01 | Sigma=0.33 | Samples=8 | Div=5.77 | s_bar=-0.03 | reg_weight=0.33
+Gen 100: Fit=3.92e+01 | Sigma=0.31 | Samples=11 | Div=4.99 | s_bar=-0.03 | reg_weight=0.30
+Gen 125: Fit=3.98e+01 | Sigma=0.29 | Samples=17 | Div=5.27 | s_bar=0.01 | reg_weight=0.28
+Gen 150: Fit=3.80e+01 | Sigma=0.27 | Samples=11 | Div=4.80 | s_bar=-0.01 | reg_weight=0.27
+Gen 175: Fit=3.76e+01 | Sigma=0.27 | Samples=8 | Div=4.65 | s_bar=-0.02 | reg_weight=0.27
+Gen 200: Fit=3.52e+01 | Sigma=0.25 | Samples=26 | Div=3.93 | s_bar=0.01 | reg_weight=0.25
+Execução estrita do algoritmo UHCMAES concluída em 7.69 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg3_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 15/36: Norm3_Stop3_Reg3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = sigma_exp0001
+   -> physics.normalization.method = log
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: log
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-07-25\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-07-25
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.76e+01 | Sigma=1.97 | Samples=10 | Div=1.97 | s_bar=-0.00 | reg_weight=1.97
+Gen 50: Fit=3.58e+01 | Sigma=1.72 | Samples=15 | Div=1.59 | s_bar=0.02 | reg_weight=1.72
+Gen 75: Fit=3.42e+01 | Sigma=1.61 | Samples=10 | Div=1.58 | s_bar=-0.02 | reg_weight=1.60
+Gen 100: Fit=3.48e+01 | Sigma=1.87 | Samples=50 | Div=1.49 | s_bar=0.01 | reg_weight=1.55
+Gen 125: Fit=3.86e+01 | Sigma=1.83 | Samples=15 | Div=1.74 | s_bar=0.08 | reg_weight=1.81
+Gen 150: Fit=3.58e+01 | Sigma=1.79 | Samples=5 | Div=1.67 | s_bar=-0.07 | reg_weight=1.76
+Gen 175: Fit=3.58e+01 | Sigma=1.73 | Samples=17 | Div=1.56 | s_bar=-0.02 | reg_weight=1.70
+Gen 200: Fit=3.58e+01 | Sigma=1.65 | Samples=22 | Div=1.56 | s_bar=-0.02 | reg_weight=1.62
+Gen 225: Fit=3.85e+01 | Sigma=1.84 | Samples=22 | Div=1.74 | s_bar=0.05 | reg_weight=1.80
+Gen 250: Fit=3.77e+01 | Sigma=2.06 | Samples=50 | Div=1.53 | s_bar=0.01 | reg_weight=1.68
+Gen 275: Fit=3.82e+01 | Sigma=1.95 | Samples=3 | Div=1.76 | s_bar=-0.00 | reg_weight=1.90
+Gen 300: Fit=3.84e+01 | Sigma=1.82 | Samples=22 | Div=1.67 | s_bar=-0.01 | reg_weight=1.77
+Execução estrita do algoritmo UHCMAES concluída em 14.09 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm3_Stop3_Reg3_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 16/36: Norm1_Stop1_Reg3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = sigma_exp0001
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-07-41\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-07-41
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.63e+01 | Sigma=0.80 | Samples=3 | Div=3.18 | s_bar=0.03 | reg_weight=0.81
+Gen 50: Fit=3.54e+01 | Sigma=0.73 | Samples=10 | Div=2.78 | s_bar=0.03 | reg_weight=0.73
+Gen 75: Fit=3.82e+01 | Sigma=0.82 | Samples=4 | Div=2.91 | s_bar=0.03 | reg_weight=0.82
+Gen 100: Fit=3.74e+01 | Sigma=0.80 | Samples=7 | Div=2.95 | s_bar=0.02 | reg_weight=0.79
+Execução estrita do algoritmo UHCMAES concluída em 4.21 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg3_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 17/36: Norm2_Stop2_Reg3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = sigma_exp0001
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-07-46\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-07-46
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=4.16e+01 | Sigma=0.39 | Samples=1 | Div=6.60 | s_bar=-0.03 | reg_weight=0.39
+Gen 50: Fit=4.43e+01 | Sigma=0.35 | Samples=1 | Div=5.85 | s_bar=-0.05 | reg_weight=0.35
+Gen 75: Fit=4.08e+01 | Sigma=0.33 | Samples=5 | Div=5.64 | s_bar=0.00 | reg_weight=0.33
+Gen 100: Fit=3.72e+01 | Sigma=0.32 | Samples=8 | Div=5.31 | s_bar=0.01 | reg_weight=0.32
+Gen 125: Fit=3.73e+01 | Sigma=0.31 | Samples=11 | Div=5.23 | s_bar=-0.01 | reg_weight=0.31
+Gen 150: Fit=3.72e+01 | Sigma=0.30 | Samples=3 | Div=5.13 | s_bar=0.01 | reg_weight=0.29
+Gen 175: Fit=3.62e+01 | Sigma=0.28 | Samples=26 | Div=4.68 | s_bar=-0.01 | reg_weight=0.27
+Gen 200: Fit=3.62e+01 | Sigma=0.26 | Samples=7 | Div=4.27 | s_bar=-0.02 | reg_weight=0.26
+Execução estrita do algoritmo UHCMAES concluída em 7.69 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg3_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 18/36: Norm3_Stop3_Reg3_W_Gen_Method_CMAES
+---------------------------------------------------
+   -> cmaes.gen_method = cmaes
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = sigma_exp0001
+   -> physics.normalization.method = log
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: log
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-07-56\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-07-56
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=3.73e+01 | Sigma=1.98 | Samples=10 | Div=1.77 | s_bar=0.01 | reg_weight=1.99
+Gen 50: Fit=3.67e+01 | Sigma=1.76 | Samples=15 | Div=1.74 | s_bar=0.05 | reg_weight=1.76
+Gen 75: Fit=3.46e+01 | Sigma=1.71 | Samples=10 | Div=1.52 | s_bar=0.16 | reg_weight=1.69
+Gen 100: Fit=3.37e+01 | Sigma=1.62 | Samples=7 | Div=1.48 | s_bar=0.04 | reg_weight=1.60
+Gen 125: Fit=3.56e+01 | Sigma=1.56 | Samples=22 | Div=1.42 | s_bar=0.00 | reg_weight=1.54
+Gen 150: Fit=3.43e+01 | Sigma=1.51 | Samples=33 | Div=1.36 | s_bar=-0.01 | reg_weight=1.49
+Gen 175: Fit=3.65e+01 | Sigma=1.74 | Samples=7 | Div=1.60 | s_bar=-0.02 | reg_weight=1.71
+Gen 200: Fit=3.59e+01 | Sigma=1.69 | Samples=10 | Div=1.62 | s_bar=0.04 | reg_weight=1.66
+Gen 225: Fit=3.84e+01 | Sigma=1.91 | Samples=22 | Div=1.74 | s_bar=-0.07 | reg_weight=1.88
+Gen 250: Fit=3.77e+01 | Sigma=1.83 | Samples=7 | Div=1.81 | s_bar=-0.02 | reg_weight=1.79
+Gen 275: Fit=3.77e+01 | Sigma=1.75 | Samples=10 | Div=1.52 | s_bar=0.04 | reg_weight=1.70
+Gen 300: Fit=3.65e+01 | Sigma=1.70 | Samples=7 | Div=1.67 | s_bar=0.03 | reg_weight=1.66
+Execução estrita do algoritmo UHCMAES concluída em 14.05 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm3_Stop3_Reg3_W_Gen_Method_CMAES concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 19/36: Norm1_Stop1_Reg1_W_Gen_Method_MVNRND
+---------------------------------------------------
+   -> cmaes.gen_method = mvnrnd
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 100
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = linear
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: linear
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-08-11\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-08-11
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=6.03e+01 | Sigma=0.43 | Samples=1 | Div=2.46 | s_bar=-0.08 | reg_weight=5.00
+Gen 50: Fit=6.47e+01 | Sigma=0.45 | Samples=1 | Div=2.67 | s_bar=-0.08 | reg_weight=5.00
+Gen 75: Fit=5.89e+01 | Sigma=0.50 | Samples=1 | Div=2.63 | s_bar=-0.02 | reg_weight=5.00
+Gen 100: Fit=6.66e+01 | Sigma=0.51 | Samples=1 | Div=2.71 | s_bar=-0.07 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 510.92 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm1_Stop1_Reg1_W_Gen_Method_MVNRND concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 20/36: Norm2_Stop2_Reg1_W_Gen_Method_MVNRND
+---------------------------------------------------
+   -> cmaes.gen_method = mvnrnd
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 200
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = standard
+Lendo arquivo de configuração config.json...
+Carregando dados sísmicos e configurando física...
+Utilizando normalização do tipo: standard
+Salvando parâmetros da simulação em: Results_UHCMAES\2026-04-01_12-16-44\config_used.json
+Resultados serão salvos na pasta: Results_UHCMAES\2026-04-01_12-16-44
+Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: 297)...
+Gen 25: Fit=6.08e+02 | Sigma=0.44 | Samples=1 | Div=10.78 | s_bar=-0.19 | reg_weight=5.00
+Gen 50: Fit=6.84e+02 | Sigma=0.44 | Samples=1 | Div=11.09 | s_bar=-0.19 | reg_weight=5.00
+Gen 75: Fit=8.29e+02 | Sigma=0.45 | Samples=1 | Div=11.13 | s_bar=-0.20 | reg_weight=5.00
+Gen 100: Fit=6.32e+02 | Sigma=0.49 | Samples=1 | Div=11.99 | s_bar=-0.19 | reg_weight=5.00
+Gen 125: Fit=9.31e+02 | Sigma=0.52 | Samples=1 | Div=12.19 | s_bar=-0.20 | reg_weight=5.00
+Gen 150: Fit=9.03e+02 | Sigma=0.56 | Samples=1 | Div=12.67 | s_bar=-0.19 | reg_weight=5.00
+Gen 175: Fit=8.24e+02 | Sigma=0.56 | Samples=1 | Div=12.58 | s_bar=-0.20 | reg_weight=5.00
+Gen 200: Fit=8.66e+02 | Sigma=0.56 | Samples=1 | Div=11.30 | s_bar=-0.19 | reg_weight=5.00
+Execução estrita do algoritmo UHCMAES concluída em 123.32 segundos.
+Processo finalizado com sucesso!
+
+>>> Experimento Norm2_Stop2_Reg1_W_Gen_Method_MVNRND concluído com sucesso.
+---------------------------------------------------
+Rodando Experimento 21/36: Norm3_Stop3_Reg1_W_Gen_Method_MVNRND
+---------------------------------------------------
+   -> cmaes.gen_method = mvnrnd
+   -> cmaes.sigma_initial = 0.5
+   -> uh.noise_level = 0.1
+   -> cmaes.stop_generations = 300
+   -> cmaes.reg_type = const
+   -> physics.normalization.method = log

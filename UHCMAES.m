@@ -50,6 +50,51 @@ DiffMat = DifferentialMatrix(nm, nvars);
 y_obs_real = [Snear; Smid; Sfar];
 Nd = length(y_obs_real);
 
+% =========================================================
+% FUNÇÕES AUXILIARES
+% =========================================================
+
+function s = uncertainty_measurement(f_old, f_new, idx_reev, theta)
+    % Mesma implementação do UHCMAES original
+    lambda = length(f_old);
+    all_values = [f_old, f_new];
+    [~, sort_idx] = sort(all_values);
+    ranks = zeros(1, 2*lambda);
+    ranks(sort_idx) = 1:(2*lambda);
+    rank_old = ranks(1:lambda); rank_new = ranks(lambda+1:end);
+    r1 = rank_old(idx_reev); r2 = rank_new(idx_reev);
+    rank_delta = r2 - r1 - sign(r2 - r1);
+    limit = (lambda * theta);
+    mean_rank_change = mean(abs(rank_delta));
+    s = (mean_rank_change - limit) / lambda;
+end
+
+function val_n = normalize_data(val, method, p)
+    switch method
+        case 'linear'
+            val_n = (val - p.min) / (p.max - p.min);
+        case 'standard'
+            val_n = (val - p.mean) / p.std;
+        case 'log'
+            val_n = log(val);
+        otherwise
+            val_n = (val - p.min) / (p.max - p.min);
+    end
+end
+
+function val = denormalize_data(val_n, method, p)
+    switch method
+        case 'linear'
+            val = val_n * (p.max - p.min) + p.min;
+        case 'standard'
+            val = val_n * p.std + p.mean;
+        case 'log'
+            val = exp(val_n);
+        otherwise
+            val = val_n * (p.max - p.min) + p.min;
+    end
+end
+
 % =========================================================================
 % 2. INICIALIZAÇÃO (PRIORS E COVARIÂNCIA)
 % =========================================================================
@@ -62,7 +107,26 @@ VpPrior = filtfilt(b, a, Vp);
 VsPrior = filtfilt(b, a, Vs);
 RhoPrior = filtfilt(b, a, Rho);
 
-x_new = [VpPrior; VsPrior; RhoPrior];
+% --- NORMALIZAÇÃO ---
+norm_method = cfg.physics.normalization.method;
+fprintf('Utilizando normalização do tipo: %s\n', norm_method);
+
+% Parâmetros de normalização baseados nos dados lidos (Vp, Vs, Rho)
+p_norm.vp = struct('min', min(Vp), 'max', max(Vp), 'mean', mean(Vp), 'std', std(Vp));
+p_norm.vs = struct('min', min(Vs), 'max', max(Vs), 'mean', mean(Vs), 'std', std(Vs));
+p_norm.rho = struct('min', min(Rho), 'max', max(Rho), 'mean', mean(Rho), 'std', std(Rho));
+
+% Normalizar os dados originais para cálculo da covariância inicial
+Vp_n = normalize_data(Vp, norm_method, p_norm.vp);
+Vs_n = normalize_data(Vs, norm_method, p_norm.vs);
+Rho_n = normalize_data(Rho, norm_method, p_norm.rho);
+
+% Normalizar o Prior
+VpPrior_n = normalize_data(VpPrior, norm_method, p_norm.vp);
+VsPrior_n = normalize_data(VsPrior, norm_method, p_norm.vs);
+RhoPrior_n = normalize_data(RhoPrior, norm_method, p_norm.rho);
+
+x_new = [VpPrior_n; VsPrior_n; RhoPrior_n];
 
 % Matriz de Covariância
 corrlength = cfg.physics.correlation_length_factor * dt; % Fator * dt
@@ -70,7 +134,7 @@ trow = repmat(0:dt:(nm-1)*dt, nm, 1);
 tcol = repmat((0:dt:(nm-1)*dt)', 1, nm);
 sigmatime = exp(-((trow - tcol) ./ corrlength).^2);
 
-sigma0 = cov([Vp, Vs, Rho]);
+sigma0 = cov([Vp_n, Vs_n, Rho_n]);
 C = kron(sigma0, sigmatime);
 
 % Decomposição Inicial
@@ -173,25 +237,6 @@ fclose(fid);
 fprintf('Resultados serão salvos na pasta: %s\n', run_folder);
 fprintf('Iniciando Inversão Sísmica com UH-CMA-ES (Dimensão: %d)...\n', N);
 
-% =========================================================
-% FUNÇÕES AUXILIARES
-% =========================================================
-
-function s = uncertainty_measurement(f_old, f_new, idx_reev, theta)
-    % Mesma implementação do UHCMAES original
-    lambda = length(f_old);
-    all_values = [f_old, f_new];
-    [~, sort_idx] = sort(all_values);
-    ranks = zeros(1, 2*lambda);
-    ranks(sort_idx) = 1:(2*lambda);
-    rank_old = ranks(1:lambda); rank_new = ranks(lambda+1:end);
-    r1 = rank_old(idx_reev); r2 = rank_new(idx_reev);
-    rank_delta = r2 - r1 - sign(r2 - r1);
-    limit = (lambda * theta);
-    mean_rank_change = mean(abs(rank_delta));
-    s = (mean_rank_change - limit) / lambda;
-end
-
 % =========================================================================
 % 4. LOOP PRINCIPAL
 % =========================================================================
@@ -230,9 +275,14 @@ while generation < stop_generations
                 arx(:, k) = mvnrnd(x_new(:),sigma*C);
         end
 
-        % Decodifica propriedades físicas
+        % Decodifica propriedades físicas (Espaço Normalizado)
         X_k = arx(:, k);
-        Vp_k = X_k(1:nm); Vs_k = X_k(nm+1:2*nm); Rho_k = X_k(2*nm+1:end);
+        Vp_k_n = X_k(1:nm); Vs_k_n = X_k(nm+1:2*nm); Rho_k_n = X_k(2*nm+1:end);
+
+        % Desnormaliza para o Espaço Físico para o Forward Modeling
+        Vp_k = denormalize_data(Vp_k_n, norm_method, p_norm.vp);
+        Vs_k = denormalize_data(Vs_k_n, norm_method, p_norm.vs);
+        Rho_k = denormalize_data(Rho_k_n, norm_method, p_norm.rho);
 
         % Forward Modeling (Simulação Física)
         try
@@ -255,8 +305,8 @@ while generation < stop_generations
         raw_fitness = accum_fit / n_samples;
 
         % Adiciona Regularização (Mantém consistência geológica)
-        % Penaliza desvios extremos do modelo a priori
-        prior_term = sum((X_k - [VpPrior; VsPrior; RhoPrior]).^2);
+        % Penaliza desvios extremos do modelo a priori (No espaço normalizado)
+        prior_term = sum((X_k - [VpPrior_n; VsPrior_n; RhoPrior_n]).^2);
         arfitness_old(k) = raw_fitness + (reg_weight * prior_term);
     end
 
@@ -268,7 +318,13 @@ while generation < stop_generations
 
     for k = idx_reev
         X_k = arx(:, k);
-        Vp_k = X_k(1:nm); Vs_k = X_k(nm+1:2*nm); Rho_k = X_k(2*nm+1:end);
+        Vp_k_n = X_k(1:nm); Vs_k_n = X_k(nm+1:2*nm); Rho_k_n = X_k(2*nm+1:end);
+
+        % Desnormaliza para o Espaço Físico
+        Vp_k = denormalize_data(Vp_k_n, norm_method, p_norm.vp);
+        Vs_k = denormalize_data(Vs_k_n, norm_method, p_norm.vs);
+        Rho_k = denormalize_data(Rho_k_n, norm_method, p_norm.rho);
+
         Y_pred_k = SeismicModel(Vp_k, Vs_k, Rho_k, theta, DiffMat, WaveMat, nvars);
 
         accum_fit = 0;
@@ -280,7 +336,7 @@ while generation < stop_generations
             accum_fit = accum_fit + misfit;
         end
         raw_fitness = accum_fit / n_samples;
-        prior_term = sum((X_k - [VpPrior; VsPrior; RhoPrior]).^2);
+        prior_term = sum((X_k - [VpPrior_n; VsPrior_n; RhoPrior_n]).^2);
         arfitness_new(k) = raw_fitness + (reg_weight * prior_term);
     end
 
@@ -349,8 +405,20 @@ while generation < stop_generations
     tempo_execucao = tempo_execucao + toc(tic_iter);
 
     if mod(generation, 25) == 0
-        history.ensamble = arx;
-        history.solutions(:, end+1) = x_new;
+        % Desnormaliza para salvar os resultados em unidades físicas
+        x_phys = [denormalize_data(x_new(1:nm), norm_method, p_norm.vp); ...
+                  denormalize_data(x_new(nm+1:2*nm), norm_method, p_norm.vs); ...
+                  denormalize_data(x_new(2*nm+1:end), norm_method, p_norm.rho)];
+
+        ensamble_phys = zeros(size(arx));
+        for i_ens = 1:size(arx, 2)
+            ensamble_phys(:, i_ens) = [denormalize_data(arx(1:nm, i_ens), norm_method, p_norm.vp); ...
+                                       denormalize_data(arx(nm+1:2*nm, i_ens), norm_method, p_norm.vs); ...
+                                       denormalize_data(arx(2*nm+1:end, i_ens), norm_method, p_norm.rho)];
+        end
+
+        history.ensamble = ensamble_phys;
+        history.solutions(:, end+1) = x_phys;
         history.time_elapsed = tempo_execucao; % Salva o tempo atualizado no history
 
         fprintf('Gen %d: Fit=%.2e | Sigma=%.2f | Samples=%d | Div=%.2f | s_bar=%.2f | reg_weight=%.2f\n', ...
@@ -364,14 +432,23 @@ while generation < stop_generations
         fclose(fid);
 
         % --- SALVAR MAT ---
+        x_new_norm = x_new; % Preserva o estado normalizado para o loop
+        x_new = x_phys;     % Temporariamente muda para o físico para o save
         save(mat_filename, 'history', 'x_new', 'cfg');
+        x_new = x_new_norm; % Restaura o estado normalizado
     end
 end
 
 % =========================================================================
 % 5. SALVAMENTO DEFINITIVO APÓS O FIM DO LOOP
 % =========================================================================
+% Desnormaliza a solução final para o salvamento
+x_new_final = [denormalize_data(x_new(1:nm), norm_method, p_norm.vp); ...
+               denormalize_data(x_new(nm+1:2*nm), norm_method, p_norm.vs); ...
+               denormalize_data(x_new(2*nm+1:end), norm_method, p_norm.rho)];
+
 history.time_elapsed = tempo_execucao; % Garante que o tempo final absoluto esteja gravado
+x_new = x_new_final; % Sobrescreve para o save final
 save(mat_filename, 'history', 'x_new', 'cfg');
 fprintf('Execução estrita do algoritmo UHCMAES concluída em %.2f segundos.\n', tempo_execucao);
 fprintf('Processo finalizado com sucesso!\n');
